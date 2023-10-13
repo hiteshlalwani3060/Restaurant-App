@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+</head>
+<body>
+        <div class="container">
+        <h3 class="pt-5">{{ item.meal }}</h3>
+        <ul cl2ass="list-group list-group-flush">
+            <li class="list-group-item pt-0" >{{ item.discription }} <span class="badge bg-primary rounded-pill">Rs {{ item.price }}</span></li>
+            
+        </ul>
+        {% if item.status == 1 %}
+            <button onclick="change()" class="btn btn-secondary">Order</button>
+        
+        {% else %}
+        <button onclick="change()" class="btn btn-secondary" disabled>Order</button> <br> <br>
+        {% endif %}
+        </div>
+        <br> <br>
+        <div id="change"></div>
+    <script>
+        function change(){
+
+            document.getElementById("change").innerHTML=`<div class="alert alert-success">Thank You for Your order. Your order is placed</div>`
+        }
+    </script>
+</body>
+</html>
+{% endblock content %}
